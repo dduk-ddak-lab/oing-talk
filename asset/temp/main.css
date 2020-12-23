@@ -1,0 +1,15 @@
+/* 태그 */
+html {height:100%; overflow: hidden;}
+body {
+  height:100%;overflow: hidden;
+  background-color:#34495E;
+  color : #EAE9E1;
+  font-size:3rem;
+}
+a {
+  text-decoration: none;
+  color : #EAE9E1;
+}
+
+/* 글꼴 추가 */
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');

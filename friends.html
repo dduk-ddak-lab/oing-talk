@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 오잉톡  </title>
+    <link rel="stylesheet" href="asset\temp\main.css">
+
+    <style>
+    body {
+      display: grid;
+      grid-template-rows: 15rem 1fr 15rem;
+      grid-template-columns: 1fr 1fr 10rem;
+      text-align: center;
+    }
+    h2 {font-size: 180%; margin-left: 1rem; color:#EAE9E1;}
+
+    .top-left {grid-row: 1/2; grid-column:1/2;}
+    .top-right {grid-row: 1/2; grid-column:2/4;}
+    .main {
+      grid-row: 2/3; grid-column:1/4;
+      border: 1rem solid #34495E; padding: 1rem;
+      background-color: #EAE9E1;
+    }
+    .bottom-left {grid-row: 3/4; grid-column: 1/3;}
+    .bottom-right {grid-row: 3/4; grid-column:3/4;}
+
+
+    /* 이미지 사이즈 조절       */
+    img {
+      width: 40%;
+      height: 30%;
+      object-fit: cover;
+      margin: 1rem;
+      border: 1rem solid #34495E;
+      border-radius: 20%;
+    }
+
+    </style>
+
+  </head>
+  <body>
+      <div class="top-left">
+        <h2> 내 코드 : </h2>
+      </div>
+      <div class="top-right">
+        <!-- 내 코드 출력 -->
+        <h2> A241bF0 </h2>
+      </div>
+    <div class="main">
+      <img src="asset\image\test_image1.jpg">
+      <img src="asset\image\test_image2.jpg">
+      <img src="asset\image\test_image3.jpg">
+      <img src="asset\image\test_image4.jpg">
+    </div>
+      <div class="bottom-left">
+        <!-- 검색바 -->
+        검색바
+      </div>
+      <div class="bottom-right">
+        <h3>검색</h3>
+      </div>
+  </body>
+</html>
