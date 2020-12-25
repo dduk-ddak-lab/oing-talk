@@ -37,10 +37,10 @@ if (mycode === undefined ) {
 
 // html 요소 중 id : mainspace 인 곳에 친구코드 삽입하기.
 function mainspacing(input_value) {
-  var newa = document.createElement("a");  // 하이퍼링크가 있는 영역에 삽입.
-  newa.innerHTML = "<h1>" + input_value + "</h2>";
+  var newDIV = document.createElement("div");  // div 영역에 삽입.
+  newDIV.innerHTML = "<h1>" + input_value + "</h2>";
   var mainspace = document.getElementById("mainspace");
-  mainspace.appendChild(newa);
+  mainspace.appendChild(newDIV);
 }
 
 //쿠키 불러오기 (친구 목록)  i.e. 초기설정]
