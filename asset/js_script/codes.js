@@ -55,7 +55,10 @@ for(var key in friends) {
 
 //친구 코드 받기
 function get_friends_code() {
+// 검색어 저장
   search_value=document.getElementById('search_bar').value;
+// 검색바 초기화
+  document.getElementById('search_bar').value="#";
 // 쿠키 전부 friends 새로 받음 :: 쿠키 업데이트.
   var friends = $.cookie();
 // friends 객체 개수 :: 몇번째 친구인지 불러옴. > 새로운 쿠키의 이름이 될 것.
