@@ -42,6 +42,17 @@
     </style>
 <!-- 스크립트 js 작업 -->
     <script>
+// my code 위한 난수 생성  :: 코드 > 16진수
+      // 숫자 앞에 0 붙이기 // n : 숫자, width : 길이
+      function numberPad(n, width) {
+        n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+      }
+      // code 생성
+      var random_code = new Uint16Array(1);
+      crypto.getRandomValues(random_code);
+      var mycode = random_code[0].toString(16).toUpperCase();
+      mycode = numberPad(mycode,4);
 // 메뉴 첫번째 my code 출력 스크립트
       function func_button_mycode(self) {
         var buttons = document.querySelectorAll("button");
@@ -54,7 +65,7 @@
           self.style.backgroundColor="#F5CB5B";
           self.value="selected";
 //===================== 코드 출력 !! ======================
-          document.getElementById("location-code").innerHTML="<style>#location-code {padding-top:3%;}</style>#GC0E3F";
+          document.getElementById("location-code").innerHTML="<style>#location-code {padding-top:3%;}</style>#"+mycode;
 //=========================================================
         } else {
           self.style.backgroundColor="#EAE9E1";
@@ -96,8 +107,8 @@
         <a href="index.html"> <button style="background-color: #E86F51; margin-left:0;"></button> </a>
       </div>
     <div class="main">
-      <h1>  #A236FD </h1>
-      <h1> #31R25F </h1>
+      <h1>  #A6FD </h1>
+      <h1> #325F </h1>
     </div>
   </body>
 </html>
