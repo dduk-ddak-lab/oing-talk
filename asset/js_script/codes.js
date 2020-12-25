@@ -56,7 +56,10 @@ for(var key in friends) {
 //친구 코드 받기
 function get_friends_code() {
 // 검색어 저장
-  search_value=document.getElementById('search_bar').value;
+  str=document.getElementById('search_bar').value;
+// # 기호 제거
+  str = str.split('#');
+  search_value = str[1];
 // 검색바 초기화
   document.getElementById('search_bar').value="#";
 // 쿠키 전부 friends 새로 받음 :: 쿠키 업데이트.
