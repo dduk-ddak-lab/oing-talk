@@ -40,58 +40,6 @@
     </style>
   </head>
   <body>
-<!-- jQuery 스크립트 추가 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- jQuery 플러그인 추가 :: 쿠키 처리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-<!-- 내 코드 & 친구 코드 처리 스크립트 추가 -->
-    <script src="asset\js_script\codes.js"> </script>
-
-<!-- 스크립트 js 작업 -->
-    <script>
- // 메뉴 첫번째 my code 출력 스크립트
-          function func_button_mycode(self) {
-            var buttons = document.querySelectorAll("button");
-            document.getElementById("location-code").innerHTML="";
-            // 코드창 리셋
-            buttons[1].style.backgroundColor="#EAE9E1";
-            buttons[1].value = "unselected";
-            // 버튼 색 리셋
-            if (self.value === "unselected") {
-              self.style.backgroundColor="#F5CB5B";
-              self.value="selected";
-//===================== 코드 출력 !! ======================
-              document.getElementById("location-code").innerHTML="<style>#location-code {margin-top:1.3rem;}</style>#"+mycode;
-//=========================================================
-            } else {
-              self.style.backgroundColor="#EAE9E1";
-              self.value="unselected";
-            }
-          }
-// 메뉴 두번째 search바 생성 스크립트
-          function func_button_search(self) {
-            var buttons = document.querySelectorAll("button");
-            document.getElementById("location-code").innerHTML="";
-            //코드창 리셋
-            buttons[0].style.backgroundColor="#EAE9E1";
-            buttons[0].value = "unselected";
-            // 버튼 색 리셋
-            if (self.value === "unselected") {
-              self.style.backgroundColor="#F5CB5B";
-              self.value="selected";
-//===================== 검색창 출력 !! ======================
-              var top_mid = document.getElementById("location-code")
-              top_mid.innerHTML="<input type='text' value='#' id='search_bar' onchange='get_friends_code(); mainspacing(search_value)'>";
-//=========================================================
-            } else {
-              self.style.backgroundColor="#EAE9E1";
-              self.value="unselected";
-            }
-          }
-    </script>
-
-
-
       <div class="top-left">
 <!-- 버튼 0 my code -->
         <button type="button" value="unselected" onclick="func_button_mycode(this)"> </button>
@@ -107,5 +55,59 @@
       <h1> #A6FD </h1>
       <h1> #325F </h1>
     </div>
+
+
+<!-- 스크립트 존 -->
+
+    <!-- jQuery 스크립트 추가 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery 플러그인 추가 :: 쿠키 처리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <!-- 내 코드 & 친구 코드 처리 스크립트 추가 -->
+    <script src="asset\js_script\codes.js"> </script>
+
+    <!-- 스크립트 js 작업 -->
+    <script>
+     // 메뉴 첫번째 my code 출력 스크립트
+              function func_button_mycode(self) {
+                var buttons = document.querySelectorAll("button");
+                document.getElementById("location-code").innerHTML="";
+                // 코드창 리셋
+                buttons[1].style.backgroundColor="#EAE9E1";
+                buttons[1].value = "unselected";
+                // 버튼 색 리셋
+                if (self.value === "unselected") {
+                  self.style.backgroundColor="#F5CB5B";
+                  self.value="selected";
+    //===================== 코드 출력 !! ======================
+                  document.getElementById("location-code").innerHTML="<style>#location-code {margin-top:1.3rem;}</style>#"+mycode;
+    //=========================================================
+                } else {
+                  self.style.backgroundColor="#EAE9E1";
+                  self.value="unselected";
+                }
+              }
+    // 메뉴 두번째 search바 생성 스크립트
+              function func_button_search(self) {
+                var buttons = document.querySelectorAll("button");
+                document.getElementById("location-code").innerHTML="";
+                //코드창 리셋
+                buttons[0].style.backgroundColor="#EAE9E1";
+                buttons[0].value = "unselected";
+                // 버튼 색 리셋
+                if (self.value === "unselected") {
+                  self.style.backgroundColor="#F5CB5B";
+                  self.value="selected";
+    //===================== 검색창 출력 !! ======================
+                  var top_mid = document.getElementById("location-code")
+                  top_mid.innerHTML="<input type='text' value='#' id='search_bar' onchange='get_friends_code(); mainspacing(search_value)'>";
+    //=========================================================
+                } else {
+                  self.style.backgroundColor="#EAE9E1";
+                  self.value="unselected";
+                }
+              }
+    </script>
+
   </body>
 </html>
