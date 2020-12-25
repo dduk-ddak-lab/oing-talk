@@ -30,18 +30,25 @@
         button:focus {outline:0;}
 /* 검색 바 css */
         input {
-          width:70%; height:50%; position: relative; bottom:0.4rem; right:0.5rem;
+          width:80%; height:50%; margin-top: 4%;
           font-size: 100%; font-family: 'Langar', cursive;
           padding:0; padding-left: 1rem;
           background-color: #EAE9E1; color:#34495E;
           border-radius: 10%; border:0; display: inline;
         }
         input:focus {outline-color: #F5CB5B}
-/* 검색 버튼 css */
-        .top-mid button {background-color: #F5CB5B}
     </style>
 <!-- 스크립트 js 작업 -->
     <script>
+// search 탭  search_value를 검색하면 main 구역에 #search_value 생성
+      function searching() {
+        search_value=document.getElementById('search_bar').value;
+        var newDIV = document.createElement("div");
+        newDIV.innerHTML = "<a> <h1>" + search_value + "</h2> </a>";
+        var mainspace = document.getElementById("mainspace");
+        mainspace.appendChild(newDIV);
+      }
+
 // my code 위한 난수 생성  :: 코드 > 16진수
       // 숫자 앞에 0 붙이기 // n : 숫자, width : 길이
       function numberPad(n, width) {
@@ -65,7 +72,7 @@
           self.style.backgroundColor="#F5CB5B";
           self.value="selected";
 //===================== 코드 출력 !! ======================
-          document.getElementById("location-code").innerHTML="<style>#location-code {padding-top:3%;}</style>#"+mycode;
+          document.getElementById("location-code").innerHTML="<style>#location-code {margin-top:2%;}</style>#"+mycode;
 //=========================================================
         } else {
           self.style.backgroundColor="#EAE9E1";
@@ -85,7 +92,7 @@
           self.value="selected";
 //===================== 검색창 출력 !! ======================
           var top_mid = document.getElementById("location-code")
-          top_mid.innerHTML="<input type='text' value='#'> <button> </button>";
+          top_mid.innerHTML="<input type='text' value='#' id='search_bar' onchange='searching()'>";
 //=========================================================
         } else {
           self.style.backgroundColor="#EAE9E1";
@@ -106,8 +113,8 @@
       <div class="top-right">
         <a href="index.html"> <button style="background-color: #E86F51; margin-left:0;"></button> </a>
       </div>
-    <div class="main">
-      <h1>  #A6FD </h1>
+    <div class="main" id="mainspace">
+      <h1> #A6FD </h1>
       <h1> #325F </h1>
     </div>
   </body>
