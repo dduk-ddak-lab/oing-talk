@@ -62,7 +62,7 @@
               self.style.backgroundColor="#F5CB5B";
               self.value="selected";
 //===================== 코드 출력 !! ======================
-              document.getElementById("location-code").innerHTML="<style>#location-code {margin-top:2rem;}</style>#"+mycode;
+              document.getElementById("location-code").innerHTML="<style>#location-code {margin-top:1.3rem;}</style>#"+mycode;
 //=========================================================
             } else {
               self.style.backgroundColor="#EAE9E1";
@@ -82,7 +82,7 @@
               self.value="selected";
 //===================== 검색창 출력 !! ======================
               var top_mid = document.getElementById("location-code")
-              top_mid.innerHTML="<input type='text' value='#' id='search_bar' onchange='searching()'>";
+              top_mid.innerHTML="<input type='text' value='#' id='search_bar' onchange='get_friends_code(); mainspacing(search_value)'>";
 //=========================================================
             } else {
               self.style.backgroundColor="#EAE9E1";
