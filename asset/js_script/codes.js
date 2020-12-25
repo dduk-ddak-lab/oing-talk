@@ -38,7 +38,7 @@ if (mycode === undefined ) {
 // html 요소 중 id : mainspace 인 곳에 친구코드 삽입하기.
 function mainspacing(input_value) {
   var newDIV = document.createElement("div");  // div 영역에 삽입.
-  newDIV.innerHTML = "<h1>" + input_value + "</h2>";
+  newDIV.innerHTML = "<h1>#" + input_value + "</h2>";
   var mainspace = document.getElementById("mainspace");
   mainspace.appendChild(newDIV);
 }
