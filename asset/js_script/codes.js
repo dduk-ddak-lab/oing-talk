@@ -49,7 +49,7 @@ var friends = $.cookie();
 // 쿠키들 중 mycode를 제외한 값들을 ㅡ i.e.친구코드 ㅡ mainspace에 기록함.
 for(var key in friends) {
   if (key !== "mycode") {
-    mainspacing(key);
+    mainspacing($.cookie(key));
   }
 }
 
