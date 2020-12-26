@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title> 오잉톡  </title>
+    <!-- 폰트 추가  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="asset\temp\deco.css">
 <!-- 스타일 css 작업 -->
     <style>
@@ -15,13 +18,14 @@
           grid-template-columns: 15rem 1fr 9rem;
           text-align: center;
         }
+        h1{margin: 0;}
 /* 그리드 세부설정 */
         .top-left {grid-row: 1/2; grid-column:1/2;}
         .top-mid {grid-row: 1/2; grid-column: 2/3;
            font-family: 'Langar', cursive; font-size: 150%;color:#F5CB5B;} /* top 설정 */
         .top-right {grid-row: 1/2; grid-column:3/4;}
         .main {grid-row: 2/3; grid-column:1/4;
-            font-family: OCR A;}  /* 메인 설정 */
+            font-family: 'Cute Font', cursive; font-size: 5rem;}  /* 메인 설정 */
 /* 버튼 css */
         button {
           width:4rem;height:4rem;border-radius:100%; background-color:#EAE9E1; margin-top:2rem; margin-left:1rem;
@@ -30,7 +34,7 @@
         button:focus {outline:0;}
 /* 검색 바 css */
         input {
-          width:80%; height:50%; margin-top: 4%;
+          width:80%; height:50%; margin-top: 1.5rem;
           font-size: 100%; font-family: 'Langar', cursive;
           padding:0; padding-left: 1rem;
           background-color: #EAE9E1; color:#34495E;
@@ -49,7 +53,18 @@
       <div class="top-mid" id="location-code">
       </div>
       <div class="top-right">
-        <a href="index.html"> <button style="background-color: #E86F51; margin-left:0;"></button> </a>
+<!-- 버튼 2 delete mode 활성화! -->
+        <button style="background-color: #E86F51; margin-left:0;"
+                onclick="if (this.value!=='selected') {
+                        document.getElementById('mainspace').style.color='#E86F51';
+                        this.value = 'selected';
+                        del_mode = true;
+                      } else {
+                        document.getElementById('mainspace').style.color='#EAE9E1';
+                        this.value = 'unselected';
+                        del_mode = false;
+                      }
+                        "></button>
       </div>
     <div class="main" id="mainspace">
       <h1> #A6FD </h1>
@@ -58,6 +73,7 @@
 
 
 <!-- 스크립트 존 -->
+<script> var del_mode = false;  // delete_mode 초기 변수 </script>
 
     <!-- jQuery 스크립트 추가 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -108,6 +124,5 @@
                 }
               }
     </script>
-
   </body>
 </html>
