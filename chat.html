@@ -10,13 +10,15 @@
     <style>
 /* 그리드 분할 */
         body {
+          font-family: "Do Hyeon", cursive;
+          font-size: 4rem;
           display: grid;
           grid-template-rows: 10rem 1fr 10rem 3rem;
           grid-template-columns: 9rem 1fr 9rem;
           text-align: center;
         }
 /* 채팅 바  */
-        textarea {
+        #input_area {
           width:85%;
           height: 4.688rem;
           max-height: 100%;
@@ -31,6 +33,9 @@
           border-radius: 10%; border:0; display: inline;
           overflow: hidden;
         }
+/*  채팅 창 (메세지 들)  */
+    /* 내가 보낸 메세지 */
+        .inline {display:inline-block; border-bottom: 0.5rem solid rgba(234, 233, 225, 0.8);}
 
 /* 그리드 세부설정 */
         .top-left {grid-row: 1/2; grid-column:1/2;}
@@ -55,16 +60,31 @@
       <div class="top-right">
 <!-- 버튼 2 delete mode 활성화! -->
         <button style="background-color: #E86F51; margin-left:0;"
-                onclick=""></button>
+                onclick="if (this.value!=='selected') {
+                        document.getElementById('mainspace').style.color='#E86F51';
+                        this.value = 'selected';
+                        del_mode = true;
+                      } else {
+                        document.getElementById('mainspace').style.color='#EAE9E1';
+                        this.value = 'unselected';
+                        del_mode = false;
+                      }"></button>
       </div>
     <div class="main" id="mainspace">
-      TEST Chat<br>neo tow trehe foru vife
     </div>
     <div class="bottom-mid">
-      <textarea onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+      <textarea id="input_area" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
     </div>
     <div class="bottom-right">
-      <button type="button" style="margin-right:2rem;" value="unselected" onclick=""> </button>
+      <!-- input_area의 텍스트 불러오기. + 줄바꿈 처리 -->
+      <button type="button" style="margin-right:2rem;" value="unselected" onclick="
+      var input_area = document.getElementById('input_area');
+      var str = input_area.value;
+      str = str.replace(/(?:\r\n|\r|\n)/g, '<br />');
+      mainspacing(str,'mychat');
+      document.getElementById('input_area').value = '';
+      resize(input_area);
+      "> </button>
     </div>
 
 
@@ -76,7 +96,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery 플러그인 추가 :: 쿠키 처리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-    <!-- 스크립트 js 작업 -->
+    <!-- 채팅 데이터 관리 스크립트 추가 -->
+    <script src="asset\js_script\chat_data.js"> </script>
+    <!-- 스크립트 작업 시작 -->
     <script>
       // 누구랑 채팅을 하고 있는지 불러오기. + 쿠키삭제.
       var target = $.cookie('signal');
@@ -88,8 +110,6 @@
       newDIV.innerHTML = "<h2>#" + secret + "**</h2>";
       var location_code = document.getElementById("location-code");
       location_code.appendChild(newDIV);
-      // 타겟 띄우기 끝.
-
       // 채팅바 크기조절 함수
       function resize(self) {
         // 여기부터 크기조절
@@ -108,26 +128,6 @@
           document.querySelectorAll('button')[2].style.width = '4rem';
         }
       }
-
-
-//-----------------------------------------------------------------------------------
-// mainspace 에 삽입하는 용도.
-      function mainspacing(input_value, input_id) {
-        var newDIV = document.createElement("div");  // div 영역에 삽입.
-        // DIV에 id 추가
-        newDIV.setAttribute("id",input_id);
-        newDIV.innerHTML = "<h1>" + input_value + "</h1>";
-        var mainspace = document.getElementById("mainspace");
-        mainspace.appendChild(newDIV);
-        // 스크롤 조절.
-        var scroll_height = mainspace.scrollHeight;
-        mainspace.scrollBy(0,scroll_height);
-      }
-//--------------------------------------------------------------------------------------
-
-
-
     </script>
-
   </body>
 </html>
