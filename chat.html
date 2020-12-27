@@ -15,15 +15,17 @@
           grid-template-columns: 9rem 1fr 9rem;
           text-align: center;
         }
-/* 채팅 바 설정 */
+/* 채팅 바  */
         textarea {
-          height: 5.3rem;
+          width:85%;
+          height: 4.688rem;
           max-height: 100%;
           /* 채팅바 위치 바닥으로. */
           position: relative;
           top: 3rem;
           margin-top: 1.5rem; margin-left: 2rem;
-          font-size: 4rem;
+          font-size: 5rem;
+          /* font-family: 'Do Hyeon', sans-serif; */
           padding:0; padding-left: 1rem;
           background-color: #EAE9E1; color:#34495E;
           border-radius: 10%; border:0; display: inline;
@@ -35,8 +37,7 @@
         .top-mid {grid-row: 1/2; grid-column: 2/3;
           font-family: 'Langar', cursive;} /* top 설정 */
         .top-right {grid-row: 1/2; grid-column:3/4;}
-        .main {grid-row: 2/3; grid-column:1/4; overflow: auto;
-           font-family: 'Do Hyeon', sans-serif;}  /* 메인 설정 */
+        .main {grid-row: 2/3; grid-column:1/4; overflow: auto;}  /* 메인 설정 */
         .bottom-mid {grid-row: 3/4; grid-column: 1/3;}
         .bottom-right {grid-row: 3/4; grid-column: 3/4;}
 /* 마진 세부설정 */
@@ -60,7 +61,7 @@
       TEST Chat<br>neo tow trehe foru vife
     </div>
     <div class="bottom-mid">
-      <textarea cols="25" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+      <textarea onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
     </div>
     <div class="bottom-right">
       <button type="button" style="margin-right:2rem;" value="unselected" onclick=""> </button>
