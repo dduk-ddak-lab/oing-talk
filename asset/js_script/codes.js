@@ -54,6 +54,9 @@ function mainspacing(input_value) {
   newDIV.innerHTML = "<h1>#" + input_value + "</h1>";
   var mainspace = document.getElementById("mainspace");
   mainspace.appendChild(newDIV);
+  // 스크롤 조절.
+  var scroll_height = mainspace.scrollHeight;
+  mainspace.scrollBy(0,scroll_height);
 }
 
 //쿠키 불러오기 (친구 목록)  i.e. 초기설정]

@@ -4,30 +4,44 @@
     <meta charset="utf-8">
     <title> 오잉톡  </title>
     <!-- 폰트 추가  -->
+    <!-- 폰트 추가  -->
     <link rel="stylesheet" href="asset\temp\deco.css">
 <!-- 스타일 css 작업 -->
     <style>
 /* 그리드 분할 */
         body {
           display: grid;
-          grid-template-rows: 10rem 1fr 10rem;
+          grid-template-rows: 10rem 1fr 10rem 3rem;
           grid-template-columns: 9rem 1fr 9rem;
           text-align: center;
         }
-        input {
-          width:85%; height:50%; margin-top: 1.5rem; margin-left: 2rem;
-          font-size: 100%; font-family: 'Langar', cursive;
+/* 채팅 바 설정 */
+        textarea {
+          height: 5.3rem;
+          max-height: 100%;
+          /* 채팅바 위치 바닥으로. */
+          position: relative;
+          top: 3rem;
+          margin-top: 1.5rem; margin-left: 2rem;
+          font-size: 4rem;
           padding:0; padding-left: 1rem;
           background-color: #EAE9E1; color:#34495E;
           border-radius: 10%; border:0; display: inline;
+          overflow: hidden;
         }
+
 /* 그리드 세부설정 */
         .top-left {grid-row: 1/2; grid-column:1/2;}
-        .top-mid {grid-row: 1/2; grid-column: 2/3;} /* top 설정 */
+        .top-mid {grid-row: 1/2; grid-column: 2/3;
+          font-family: 'Langar', cursive;} /* top 설정 */
         .top-right {grid-row: 1/2; grid-column:3/4;}
-        .main {grid-row: 2/3; grid-column:1/4;}  /* 메인 설정 */
+        .main {grid-row: 2/3; grid-column:1/4; overflow: auto;
+           font-family: 'Do Hyeon', sans-serif;}  /* 메인 설정 */
         .bottom-mid {grid-row: 3/4; grid-column: 1/3;}
         .bottom-right {grid-row: 3/4; grid-column: 3/4;}
+/* 마진 세부설정 */
+      .top-mid h2 {margin:0; margin-top:0.8rem;}
+      .bottom-right button {position: relative; top: 3rem;}
     </style>
   </head>
   <body>
@@ -36,7 +50,6 @@
         <a href="friends.html"><button type="button" style="background-color:#F5CB5B" value="unselected"> </button></a>
       </div>
       <div class="top-mid" id="location-code">
-        #2222
       </div>
       <div class="top-right">
 <!-- 버튼 2 delete mode 활성화! -->
@@ -47,7 +60,7 @@
       TEST Chat<br>neo tow trehe foru vife
     </div>
     <div class="bottom-mid">
-      <input type="text" name="" value="">
+      <textarea cols="25" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
     </div>
     <div class="bottom-right">
       <button type="button" style="margin-right:2rem;" value="unselected" onclick=""> </button>
@@ -55,11 +68,65 @@
 
 
 <!-- 스크립트 존 -->
-<script> var del_mode = false;  // delete_mode 초기 변수 </script>
+    <script>  // 초기 설정
+      var del_mode = false;  // delete_mode 초기 변수
+    </script>
     <!-- jQuery 스크립트 추가 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery 플러그인 추가 :: 쿠키 처리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <!-- 스크립트 js 작업 -->
+    <script>
+      // 누구랑 채팅을 하고 있는지 불러오기. + 쿠키삭제.
+      var target = $.cookie('signal');
+      if (target == undefined) {location.replace("index.html");}
+      $.cookie('signal',0,{expires: -1, path:'/'});
+      // 상단에 타겟(채팅 상대) 코드 띄우기.
+      secret = target.substr(0,2);
+      var newDIV = document.createElement("div");  // div 영역에 삽입.
+      newDIV.innerHTML = "<h2>#" + secret + "**</h2>";
+      var location_code = document.getElementById("location-code");
+      location_code.appendChild(newDIV);
+      // 타겟 띄우기 끝.
+
+      // 채팅바 크기조절 함수
+      function resize(self) {
+        // 여기부터 크기조절
+        self.style.height = "1px";
+        self.style.height = (self.scrollHeight)+"px";
+        // 채팅바 & 버튼 위치 조절 + 버튼 크기 조절
+        if (self.scrollHeight > 100) {
+          self.style.top = 0;
+          document.querySelectorAll('button')[2].style.top = '1.5rem';
+          document.querySelectorAll('button')[2].style.height = '6rem';
+          document.querySelectorAll('button')[2].style.width = '6rem';
+        } else {
+          self.style.top = "3rem";
+          document.querySelectorAll('button')[2].style.top = '3rem';
+          document.querySelectorAll('button')[2].style.height = '4rem';
+          document.querySelectorAll('button')[2].style.width = '4rem';
+        }
+      }
+
+
+//-----------------------------------------------------------------------------------
+// mainspace 에 삽입하는 용도.
+      function mainspacing(input_value, input_id) {
+        var newDIV = document.createElement("div");  // div 영역에 삽입.
+        // DIV에 id 추가
+        newDIV.setAttribute("id",input_id);
+        newDIV.innerHTML = "<h1>" + input_value + "</h1>";
+        var mainspace = document.getElementById("mainspace");
+        mainspace.appendChild(newDIV);
+        // 스크롤 조절.
+        var scroll_height = mainspace.scrollHeight;
+        mainspace.scrollBy(0,scroll_height);
+      }
+//--------------------------------------------------------------------------------------
+
+
+
+    </script>
+
   </body>
 </html>

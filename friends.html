@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title> 오잉톡  </title>
-    <!-- 폰트 추가  -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+<!-- 기본 css 추가 -->
     <link rel="stylesheet" href="asset\temp\deco.css">
 <!-- 스타일 css 작업 -->
     <style>
-/*  글꼴 추가  Langar */
-    @import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
 /* 그리드 분할 */
         body {
           display: grid;
@@ -25,7 +21,8 @@
            font-family: 'Langar', cursive; font-size: 150%;color:#F5CB5B;} /* top 설정 */
         .top-right {grid-row: 1/2; grid-column:3/4;}
         .main {grid-row: 2/3; grid-column:1/4;
-            font-family: 'Cute Font', cursive; font-size: 5rem;}  /* 메인 설정 */
+            font-family: 'Cute Font', cursive; font-size: 5rem;
+            overflow: auto;}  /* 메인 설정 */
 /* 검색 바 css */
         input {
           width:80%; height:50%; margin-top: 1.5rem;

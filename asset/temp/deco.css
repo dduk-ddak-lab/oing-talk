@@ -4,7 +4,10 @@
   노란색 : #F5CB5B
   빨간색 : #E86F51
 */
-
+/*  글꼴 추가  Langar */
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
 
 /* 태그 */
 html {height:100%; overflow: hidden;}
