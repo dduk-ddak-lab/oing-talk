@@ -1,3 +1,11 @@
+/* :: 색상 정리  ::
+  파란색 : #34495E
+  흰색   : #EAE9E1
+  노란색 : #F5CB5B
+  빨간색 : #E86F51
+*/
+
+
 /* 태그 */
 html {height:100%; overflow: hidden;}
 body {
@@ -10,3 +18,9 @@ a {
   text-decoration: none;
   color : #EAE9E1;
 }
+/* 버튼 css */
+button {
+  width:4rem;height:4rem;border-radius:100%; background-color:#EAE9E1; margin-top:2rem; margin-left:1rem;
+  border: none;
+}
+button:focus {outline:0;}

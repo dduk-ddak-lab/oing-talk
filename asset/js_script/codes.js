@@ -55,11 +55,11 @@ function mainspacing(input_value) {
   newDIV.onclick = function() {
     if (del_mode==true) { // 만약 delete mode라면!  i.e. 버튼 2
       $('div').remove('#'+input_value);  // div 제거
-      $.cookie("friends_code"+input_value, 0,{expires: -1, path:'/'});
+      $.cookie("friends_code"+input_value, 0,{expires: -1, path:'/'}); // 쿠키제거
     } else {  // delete mode가 아니라면! : default  i.e. 버튼2
     $.cookie('signal', input_value,{expires: 1, path:'/'});
     //*********************************************************************************
-    location.replace("");  // 주소 입력
+    location.replace("chat.html");  // 주소 입력
     //*********************************************************************************
     }
   }
